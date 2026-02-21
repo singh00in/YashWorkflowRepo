@@ -1,0 +1,13 @@
+name: Keep Hugging Face Space Awake
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Runs every 6 hours to be safe
+  workflow_dispatch:      # Allows you to click a button to run it manually
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake up Space
+        run: |
+          curl -I https://huggingface.co/spaces/singh00in/SuperKartFrontend
